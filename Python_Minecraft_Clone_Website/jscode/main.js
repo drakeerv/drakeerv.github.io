@@ -8,6 +8,8 @@ function init(e) {
 
 function keyhandler (e) {
     if((e.keyCode == 97 || prev_key == 97) && (e.keyCode == 101 || prev_key == 101)) {
+        var icon = document.getElementById("icon")
+        icon.setAttribute("href", "assets/egg.ico")
         console.log("Easter Egg :D");
     }
     prev_key = e.keyCode;
