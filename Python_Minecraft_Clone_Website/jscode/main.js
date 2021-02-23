@@ -1,14 +1,18 @@
-var egg = new Egg();
-var egg_audio = new Audio("assets/egg.mp3")
-egg_audio.play();
+var prev_key = null;
 
 function init(e) {
-    initdownload(e)
-    egg.addCode("up,up,down,down,left,right,left,right,b,a", function() {
-        egg_audio.play();
-    });
+    initdownload(e);
+    initsticky(e);
+    document.addEventListener('keypress', keyhandler);
 }
 
-function sleep(ms) {
+function keyhandler (e) {
+    if((e.keyCode == 97 || prev_key == 97) && (e.keyCode == 101 || prev_key == 101)) {
+        console.log("Easter Egg :D");
+    }
+    prev_key = e.keyCode;
+}
+
+function sleep (ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
